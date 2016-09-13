@@ -48,7 +48,8 @@
   "extra": {
     "contao": {
       "sources": {
-        "Resources/contao": "system/modules/member-import"
+        "Resources/contao": "system/modules/member-import",
+        "Resources/assets": "assets/member-import"
       }
     },
     "branch-alias": {
