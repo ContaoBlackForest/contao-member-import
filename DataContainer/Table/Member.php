@@ -12,6 +12,8 @@
 
 namespace ContaoBlackForest\Member\Import\DataContainer\Table;
 
+use Contao\Backend;
+
 /**
  * The data container class for member.
  */
@@ -51,7 +53,9 @@ class Member
      */
     protected function generateSettingsButton()
     {
-        return '<a class="navigation settings">' . $GLOBALS['TL_LANG']['MSC']['member_import_settings'] . '</a>';
+        return '<a class="navigation settings" href="' . Backend::addToUrl('do=member&amp;table=tl_member_import') . '">' .
+               $GLOBALS['TL_LANG']['MSC']['member_import_settings'] .
+               '</a>';
     }
 
     /**
