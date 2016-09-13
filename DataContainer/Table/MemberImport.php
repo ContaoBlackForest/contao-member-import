@@ -96,4 +96,27 @@ class MemberImport
 
         $objVersions->create();
     }
+
+    /**
+     * Get the translation properties.
+     *
+     * @return array The options.
+     */
+    public function getTranslationProperties()
+    {
+        System::loadLanguageFile('tl_member');
+
+        $dataBase = Database::getInstance();
+
+        $options = array();
+        foreach ($dataBase->getFieldNames('tl_member') as $fieldName) {
+            if (!array_key_exists($fieldName, $GLOBALS['TL_LANG']['tl_member'])) {
+                continue;
+            }
+
+            $options[$fieldName] = $GLOBALS['TL_LANG']['tl_member'][$fieldName][0] . ' (' . $fieldName . ')';
+        }
+
+        return $options;
+    }
 }

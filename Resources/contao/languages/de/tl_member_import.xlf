@@ -99,6 +99,30 @@
                 <source>Here you can select a file to be imported.</source>
                 <target>Hier können Sie eine Datei auswählen die importiert werden soll.</target>
             </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties.0">
+                <source>Translate database properties</source>
+                <target>Übersetzung Datenbank Eigenschaften</target>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties.1">
+                <source>Translate database properties field names.</source>
+                <target>Übersetzung der Feldnamen der Datenbank Eigenschaften.</target>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties_property.0">
+                <source>Property</source>
+                <target>Eigenschaft</target>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties_property.1">
+                <source>Property for translate.</source>
+                <target>Die Eigenschaft zum übersetzen.</target>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties_translation.0">
+                <source>Translation</source>
+                <target>Übersetzung</target>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties_translation.1">
+                <source>Translation for the property.</source>
+                <target>Die Übersetzung der Eigenschaft.</target>
+            </trans-unit>
             <trans-unit id="tl_member_import.disable_import.0">
                 <source>Deactivate</source>
                 <target>Deaktivieren</target>

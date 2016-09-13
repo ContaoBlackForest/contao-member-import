@@ -74,6 +74,24 @@
             <trans-unit id="tl_member_import.importSource.1">
                 <source>Here you can select a file to be imported.</source>
             </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties.0">
+                <source>Translate database properties</source>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties.1">
+                <source>Translate database properties field names.</source>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties_property.0">
+                <source>Property</source>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties_property.1">
+                <source>Property for translate.</source>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties_translation.0">
+                <source>Translation</source>
+            </trans-unit>
+            <trans-unit id="tl_member_import.translate_properties_translation.1">
+                <source>Translation for the property.</source>
+            </trans-unit>
             <trans-unit id="tl_member_import.disable_import.0">
                 <source>Deactivate</source>
             </trans-unit>

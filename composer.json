@@ -35,7 +35,8 @@
     "php": ">=5.4",
     "contao/core": ">=3.5,<3.6",
     "contao-community-alliance/composer-plugin": "~2.0",
-    "contao-community-alliance/event-dispatcher": "~1.0"
+    "contao-community-alliance/event-dispatcher": "~1.0",
+    "menatwork/contao-multicolumnwizard": "~3.3"
   },
   "require-dev": {},
   "minimum-stability": "dev",

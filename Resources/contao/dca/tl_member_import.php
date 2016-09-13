@@ -99,7 +99,7 @@ $GLOBALS['TL_DCA']['tl_member_import'] = array
     (
         '__selector__' => array('assignDir'),
         'default'      => '{title_legend},title;' .
-                          '{import_legend},importSource,disable_import;' .
+                          '{import_legend},importSource,translate_properties,disable_import;' .
                           '{address_legend:hide},company,street,postal,city,state,country;' .
                           '{contact_legend},phone,fax,email,website,language;' .
                           '{groups_legend},groups;' .
@@ -337,5 +337,42 @@ $GLOBALS['TL_DCA']['tl_member_import'] = array
             'inputType' => 'checkbox',
             'sql'       => "char(1) NOT NULL default ''"
         ),
+        'translate_properties' => array
+        (
+            'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['translate_properties'],
+            'exclude'   => true,
+            'inputType' => 'multiColumnWizard',
+            'eval'      => array
+            (
+                'columnFields' => array
+                (
+                    'property'    => array
+                    (
+                        'label'            => &$GLOBALS['TL_LANG']['tl_member_import']['translate_properties_property'],
+                        'exclude'          => true,
+                        'inputType'        => 'select',
+                        'options_callback' => array
+                        (
+                            'ContaoBlackForest\Member\Import\DataContainer\Table\MemberImport',
+                            'getTranslationProperties'
+                        ),
+                        'eval'             => array(
+                            'includeBlankOption' => true,
+                            'chosen'             => true,
+                            'style'              => 'width:360px'
+                        ),
+                    ),
+                    'translation' => array
+                    (
+                        'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['translate_properties_translation'],
+                        'exclude'   => true,
+                        'inputType' => 'text',
+                        'eval'      => array
+                        (),
+                    ),
+                )
+            ),
+            'sql'       => "blob NULL"
+        )
     )
 );
