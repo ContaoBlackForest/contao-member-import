@@ -79,7 +79,8 @@ class AnalysisController
         $session->set('member-import-settings', $this->settings);
 
         $GLOBALS['TL_MOOTOOLS'][] =
-            "<script>location.href = '" . Backend::addToUrl("do=member_import&amp;import=load") . "'</script>";
+            "<script>location.href = 'contao/main.php" .
+            "?do=member_import&import=load&rt=" . REQUEST_TOKEN . "&ref=" . TL_REFERER_ID . "'</script>";
     }
 
     /**
