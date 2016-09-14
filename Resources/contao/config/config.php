@@ -11,3 +11,9 @@
  */
 
 $GLOBALS['BE_MOD']['accounts']['member']['tables'][] = 'tl_member_import';
+
+/**
+ * Replace title and headline.
+ */
+$GLOBALS['TL_HOOKS']['parseTemplate'][] =
+    array('ContaoBlackForest\Member\Import\DataContainer\Table\MemberImport', 'replaceHeadlineName');
