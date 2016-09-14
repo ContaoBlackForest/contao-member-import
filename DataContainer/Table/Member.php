@@ -13,6 +13,7 @@
 namespace ContaoBlackForest\Member\Import\DataContainer\Table;
 
 use Contao\Backend;
+use Contao\Database;
 
 /**
  * The data container class for member.
@@ -53,7 +54,8 @@ class Member
      */
     protected function generateSettingsButton()
     {
-        return '<a class="navigation settings" href="' . Backend::addToUrl('do=member&amp;table=tl_member_import') . '">' .
+        return '<a class="navigation settings" href="' . Backend::addToUrl('do=member&amp;table=tl_member_import')
+               . '">' .
                $GLOBALS['TL_LANG']['MSC']['member_import_settings'] .
                '</a>';
     }
@@ -65,7 +67,15 @@ class Member
      */
     protected function generateImportButton()
     {
-        return '<a class="navigation autoload" onclick="if(!confirm(\'' . $this->generateConfirmMessage() .
+        if (!$confirmMessage = $this->generateConfirmMessage()) {
+            return '<a class="navigation autoload" onclick="if(!alert(\'' .
+                   $GLOBALS['TL_LANG']['MSC']['member_import_import_alert'] .
+                   '\'))return false;Backend.getScrollOffset()">' . $GLOBALS['TL_LANG']['MSC']['member_import_import'] .
+                   '</a>';
+        }
+
+        return '<a class="navigation autoload" href="' . Backend::addToUrl('do=member_import&amp;import=analysis') . '" ' .
+               'onclick="if(!confirm(\'' . $confirmMessage .
                '\'))return false;Backend.getScrollOffset()">' . $GLOBALS['TL_LANG']['MSC']['member_import_import'] .
                '</a>';
     }
@@ -77,8 +87,11 @@ class Member
      */
     protected function generateConfirmMessage()
     {
+        if (!$importInformation = $this->generateImportInformation()) {
+            return $importInformation;
+        }
         return $GLOBALS['TL_LANG']['MSC']['member_import_import_confirm'] . ' \n' .
-               $this->generateImportInformation();
+               $importInformation;
     }
 
     /**
@@ -88,7 +101,23 @@ class Member
      */
     protected function generateImportInformation()
     {
-        return '&bull; foo \n' .
-               '&bull; bar';
+        $dataDatabase = Database::getInstance();
+
+        $result =
+            $dataDatabase->prepare("SELECT title, id FROM tl_member_import WHERE disable_import=? ORDER BY title")
+                ->execute(0);
+
+        if ($result->count() < 1) {
+            return null;
+        }
+
+        $informationRow = '  &bull; %s (ID %s) \n';
+
+        $information = '';
+        while ($result->next()) {
+            $information .= vsprintf($informationRow, array($result->title, $result->id));
+        }
+
+        return $information;
     }
 }

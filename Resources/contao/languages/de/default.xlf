@@ -15,8 +15,12 @@
         <target>Import</target>
       </trans-unit>
       <trans-unit id="MSC.member_import_import_confirm">
-        <source>Will following configuration be imported?</source>
-        <target>Sollen folgende Konfiguration importiert werden?</target>
+        <source>Will following configurations be imported?</source>
+        <target>Sollen folgende Konfigurationen importiert werden?</target>
+      </trans-unit>
+      <trans-unit id="MSC.member_import_import_alert">
+        <source>There were found no import settings!</source>
+        <target>Es wurden keine Import Einstellungen gefunden!</target>
       </trans-unit>
     </body>
   </file>
