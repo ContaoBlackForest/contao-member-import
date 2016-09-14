@@ -50,6 +50,9 @@ class BackendController
         $analysisController = new AnalysisController();
         $buffer .= $analysisController->handle();
 
+        $fileLoadController = new FileLoadController();
+        $buffer .= $fileLoadController->handle();
+
         return $buffer;
     }
 }

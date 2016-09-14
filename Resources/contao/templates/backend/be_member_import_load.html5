@@ -1,0 +1,7 @@
+<br>
+<h2 class="sub_headline"><?= $GLOBALS['TL_LANG']['member_import']['import_load'] ?></h2>
+
+<div class="information">
+    <h3><?= $GLOBALS['TL_LANG']['member_import']['progress'] ?></h3>
+    <p><?= $this->step ?> / <?= $this->count ?></p>
+</div>
