@@ -14,6 +14,7 @@ namespace ContaoBlackForest\Member\Import\DataContainer\Table;
 
 use Contao\Backend;
 use Contao\Database;
+use Contao\Session;
 
 /**
  * The data container class for member.
@@ -35,7 +36,8 @@ class Member
      */
     public function injectImportMenu($href, $label, $title, $class)
     {
-        $GLOBALS['TL_CSS']['member-import'] = 'assets/member-import/backend/style.css';
+        #$GLOBALS['TL_CSS']['member-import'] = 'assets/member-import/backend/style.css';
+        $this->removeSessionImport();
 
         return '<ul class="menu ' . $class . '">' .
                '<li>' . $label . '</li>' .
@@ -119,5 +121,13 @@ class Member
         }
 
         return $information;
+    }
+
+    protected function removeSessionImport()
+    {
+        $session = Session::getInstance();
+
+        $session->remove('member-import-settings');
+        $session->remove('member-import-data');
     }
 }
