@@ -17,3 +17,5 @@ $GLOBALS['BE_MOD']['accounts']['member']['tables'][] = 'tl_member_import';
  */
 $GLOBALS['TL_HOOKS']['parseTemplate'][] =
     array('ContaoBlackForest\Member\Import\DataContainer\Table\MemberImport', 'replaceHeadlineName');
+$GLOBALS['TL_HOOKS']['parseTemplate'][] =
+    array('\ContaoBlackForest\Member\Import\Controller\BackendController', 'replaceHeadlineName');
