@@ -10,7 +10,14 @@
  * @copyright Copyright 2014-2016 ContaoBlackForest
  */
 
+/**
+ * Add member import table.
+ */
 $GLOBALS['BE_MOD']['accounts']['member']['tables'][] = 'tl_member_import';
+
+$GLOBALS['BE_MOD']['accounts']['member_import'] = array(
+    'callback'   => 'ContaoBlackForest\Member\Import\Controller\BackendController',
+);
 
 /**
  * Replace title and headline.
