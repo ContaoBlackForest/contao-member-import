@@ -72,6 +72,7 @@ class AnalysisController
             $result->importSource = $source;
 
             $result->translate_properties = unserialize($result->translate_properties);
+            $result->groups               = unserialize($result->groups);
 
             $this->settings[] = $result->row();
         }
