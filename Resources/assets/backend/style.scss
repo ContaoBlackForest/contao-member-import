@@ -1,0 +1,57 @@
+#left {
+
+  #tl_navigation {
+
+    #accounts {
+
+      .member_import {
+        display: none;
+      }
+    }
+  }
+}
+
+#tl_buttons {
+
+  ul.menu {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+
+    ul {
+      display: none;
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      width: 100%;
+      float: none;
+      border: 1px solid #000000;
+      background: #ffffff;
+      text-align: left;
+
+      li {
+        padding: 6px;
+
+        &:hover {
+          background: rgb(235, 253, 215);
+        }
+
+        .navigation {
+
+          &.autoload {
+            background-image: url("/system/modules/devtools/assets/autoload.gif");
+          }
+        }
+      }
+    }
+
+    &:hover {
+
+      ul {
+        display: inherit;
+        left: 0;
+        top: 18px;
+      }
+    }
+  }
+}

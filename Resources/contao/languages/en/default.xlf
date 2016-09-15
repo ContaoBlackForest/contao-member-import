@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file datatype="php" original="system/modules/member-import/languages/en/default.xlf" source-language="en">
+    <body>
+      <trans-unit id="MSC.member_import">
+        <source>Member import</source>
+      </trans-unit>
+      <trans-unit id="MSC.member_import_settings">
+        <source>Settings</source>
+      </trans-unit>
+      <trans-unit id="MSC.member_import_import">
+        <source>Import</source>
+      </trans-unit>
+      <trans-unit id="MSC.member_import_import_confirm">
+        <source>Will following configuration be imported?</source>
+      </trans-unit>
+      <trans-unit id="MSC.member_import_import_alert">
+        <source>There were found no import settings!</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

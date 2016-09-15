@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file datatype="php" original="system/modules/member-import/languages/en/member_import.xlf" source-language="en">
+    <body>
+      <trans-unit id="member_import.import_information">
+        <source>Import Information</source>
+      </trans-unit>
+      <trans-unit id="member_import.import_load">
+        <source>Files are processed</source>
+      </trans-unit>
+      <trans-unit id="member_import.import_prepare">
+        <source>Data is processed</source>
+      </trans-unit>
+      <trans-unit id="member_import.import_import">
+        <source>Importing data into the database</source>
+      </trans-unit>
+      <trans-unit id="member_import.selected">
+        <source>Selected import settings:</source>
+      </trans-unit>
+      <trans-unit id="member_import.progress">
+        <source>Progress:</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
