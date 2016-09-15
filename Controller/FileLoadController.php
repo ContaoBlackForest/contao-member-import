@@ -165,7 +165,7 @@ class FileLoadController
      */
     protected function injectScript($step)
     {
-        if (Input::get('import') === 'prepare') {
+        if (in_array(Input::get('import'), array('prepare', 'import'), null)) {
             return;
         }
 
