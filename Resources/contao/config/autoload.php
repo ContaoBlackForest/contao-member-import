@@ -19,6 +19,8 @@
     (
         'be_member_import'          => 'system/modules/member-import/templates/backend',
         'be_member_import_analysis' => 'system/modules/member-import/templates/backend',
-        'be_member_import_load'     => 'system/modules/member-import/templates/backend'
+        'be_member_import_load'     => 'system/modules/member-import/templates/backend',
+        'be_member_import_prepare'  => 'system/modules/member-import/templates/backend',
+        'be_member_import_import'   => 'system/modules/member-import/templates/backend',
     )
 );
