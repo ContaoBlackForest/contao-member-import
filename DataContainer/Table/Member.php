@@ -129,5 +129,6 @@ class Member
 
         $session->remove('member-import-settings');
         $session->remove('member-import-data');
+        $session->remove('member-import-prepare');
     }
 }
