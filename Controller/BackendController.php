@@ -53,6 +53,12 @@ class BackendController
         $fileLoadController = new FileLoadController();
         $buffer .= $fileLoadController->handle();
 
+        $prepareDataController = new PrepareDataController();
+        $buffer .= $prepareDataController->handle();
+
+        $importDataController = new ImportDataController();
+        $buffer .= $importDataController->handle();
+
         return $buffer;
     }
 }
