@@ -26,3 +26,5 @@ $GLOBALS['TL_HOOKS']['parseTemplate'][] =
     array('ContaoBlackForest\Member\Import\DataContainer\Table\MemberImport', 'replaceHeadlineName');
 $GLOBALS['TL_HOOKS']['parseTemplate'][] =
     array('\ContaoBlackForest\Member\Import\Controller\BackendController', 'replaceHeadlineName');
+
+$GLOBALS['TL_CSS']['member-import'] = 'assets/member-import/backend/style.css';
