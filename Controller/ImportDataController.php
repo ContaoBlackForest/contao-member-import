@@ -121,11 +121,19 @@ class ImportDataController
 
         $savedData = false;
         foreach ($data as $property => $value) {
+            if ($property === 'password') {
+                if (!$result->{$property} && $value) {
+                    $savedData = false;
+                }
+
+                continue;
+            }
+
             if (is_array($value)) {
                 $value = serialize($value);
             }
 
-            if ($result->{$property} != $value && $property !== 'password') {
+            if ($result->{$property} != $value) {
                 $savedData = false;
 
                 continue;
