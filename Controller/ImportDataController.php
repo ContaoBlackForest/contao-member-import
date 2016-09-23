@@ -125,7 +125,7 @@ class ImportDataController
                 $value = serialize($value);
             }
 
-            if ($result->{$property} != $value) {
+            if ($result->{$property} != $value && $property !== 'password') {
                 $savedData = false;
 
                 continue;
