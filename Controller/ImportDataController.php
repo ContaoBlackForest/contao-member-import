@@ -144,13 +144,17 @@ class ImportDataController
         }
 
         Input::setPost('FORM_SUBMIT', 'tl_member');
-        Input::setPost('FORM_FIELDS', array($GLOBALS['TL_DCA']['tl_member']['palettes']['default']));
+        Input::setPost('FORM_FIELDS', $this->prepareFormFields($result, $dcTable));
 
         if ($result->count() === 0) {
             $dcTable->create(array('email' => $data['email']));
         }
 
         foreach ($data as $property => $value) {
+            if ($property === 'password') {
+                Input::setPost('password_confirm', $value);
+            }
+
             Input::setPost($property, $value);
         }
 
@@ -192,5 +196,25 @@ class ImportDataController
             "<script>location.href = 'contao/main.php" .
             "?do=member_import&import=import&step=" . $step . "&rt=" . REQUEST_TOKEN . "&ref=" . TL_REFERER_ID .
             "'</script>";
+    }
+
+    /**
+     * Prepare form fields form dc table.
+     *
+     * @param Database\Result $result        The member result.
+     *
+     * @param DC_Table        $dataContainer The data container.
+     *
+     * @return array The form fields.
+     */
+    protected function prepareFormFields($result, DC_Table $dataContainer)
+    {
+        if ($result->id) {
+            $dataContainer->id = $result->id;
+        }
+
+        $formFields = $dataContainer->getPalette();
+
+        return (array) $formFields;
     }
 }
