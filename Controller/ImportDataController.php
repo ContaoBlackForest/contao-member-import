@@ -131,7 +131,7 @@ class ImportDataController
             }
 
             if ($property === 'password') {
-                if (!$result->{$property} && $value) {
+                if ($result->{$property} && $value) {
                     unset($data[$property]);
                 }
 
