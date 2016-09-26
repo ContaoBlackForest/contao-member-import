@@ -119,11 +119,20 @@ class ImportDataController
         $result   = $database->prepare('SELECT * FROM tl_member WHERE email=?')
             ->execute($data['email']);
 
-        $savedData = false;
         foreach ($data as $property => $value) {
+            if ($property === 'groups' && $result->groups) {
+                foreach (unserialize($result->groups) as $group) {
+                    if (in_array($group, $value, null)) {
+                        continue;
+                    }
+
+                    $value[] = $group;
+                }
+            }
+
             if ($property === 'password') {
                 if (!$result->{$property} && $value) {
-                    $savedData = false;
+                    unset($data[$property]);
                 }
 
                 continue;
@@ -133,16 +142,14 @@ class ImportDataController
                 $value = serialize($value);
             }
 
-            if ($result->{$property} != $value) {
-                $savedData = false;
+            if ($result->{$property} == $value) {
+                unset($data[$property]);
 
                 continue;
             }
-
-            $savedData = true;
         }
 
-        if ($savedData) {
+        if (count($data) < 1) {
             return;
         }
 
