@@ -150,7 +150,7 @@ class FileLoadController
         $data = array();
 
         foreach ($content as $line => $value) {
-            $data[$header[$line]] = $value;
+            $data[$header[$line]] = trim($value);
         }
 
         return $data;
