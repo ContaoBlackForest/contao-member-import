@@ -176,6 +176,11 @@ class ImportDataController
         if ($result->count() === 1) {
             $dcTable->edit($result->id);
 
+            // FIXME why dc table not update tstamp?
+            $database->prepare('UPDATE tl_member %s WHERE id=?')
+                ->set(array('tstamp' => time()))
+                ->execute($result->id);
+
             $this->importData();
         }
     }
