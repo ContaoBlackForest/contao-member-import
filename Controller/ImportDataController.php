@@ -176,7 +176,7 @@ class ImportDataController
         if ($result->count() === 1) {
             $dcTable->edit($result->id);
 
-            Controller::reload();
+            $this->importData();
         }
     }
 
