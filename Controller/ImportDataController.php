@@ -174,12 +174,9 @@ class ImportDataController
         }
 
         if ($result->count() === 1) {
-            $dcTable->edit($result->id);
+            Input::setPost('email', $result->email);
 
-            // FIXME why dc table not update tstamp?
-            $database->prepare('UPDATE tl_member %s WHERE id=?')
-                ->set(array('tstamp' => time()))
-                ->execute($result->id);
+            $dcTable->edit($result->id);
 
             $this->importData();
         }
@@ -211,6 +208,10 @@ class ImportDataController
         }
 
         if (count($this->preparedData) == Input::get('step')) {
+            if (array_key_exists('TL_CONFIRM', $_SESSION)) {
+                unset($_SESSION['TL_CONFIRM']);
+            }
+
             return;
         }
 
