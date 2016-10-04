@@ -208,6 +208,10 @@ class ImportDataController
         }
 
         if (count($this->preparedData) == Input::get('step')) {
+            if (array_key_exists('TL_CONFIRM', $_SESSION)) {
+                unset($_SESSION['TL_CONFIRM']);
+            }
+
             return;
         }
 
