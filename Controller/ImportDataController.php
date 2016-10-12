@@ -126,7 +126,8 @@ class ImportDataController
                         continue;
                     }
 
-                    $value[] = $group;
+                    $value[]           = $group;
+                    $data[$property][] = $group;
                 }
             }
 
