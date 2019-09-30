@@ -8,7 +8,7 @@
         "import",
         "module"
     ],
-    "type": "contao-module",
+    "type": "contao-bundle",
     "license": "LGPL-3.0-or-later",
     "authors": [
         {
@@ -26,11 +26,11 @@
         "source": "https://github.com/ContaoBlackforest/contao-member-import"
     },
     "require": {
-        "php": ">=5.4",
-        "contao/core": ">=3.5,<3.6",
-        "contao-community-alliance/composer-plugin": "~2.0",
-        "contao-community-alliance/event-dispatcher": "~1.0",
-        "menatwork/contao-multicolumnwizard": "~3.3"
+        "php": "^7.1",
+        "contao/core-bundle": "^4.4",
+        "contao-community-alliance/composer-plugin": "^3.0",
+        "contao-community-alliance/event-dispatcher": "^2.0",
+        "menatwork/contao-multicolumnwizard-bundle": "^3.4"
     },
     "require-dev": {},
     "autoload": {
