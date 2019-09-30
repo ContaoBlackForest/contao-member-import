@@ -32,13 +32,17 @@
         "contao-community-alliance/event-dispatcher": "^2.0",
         "menatwork/contao-multicolumnwizard-bundle": "^3.4"
     },
-    "require-dev": {},
+    "require-dev": {
+        "contao/manager-plugin": "^2.7"
+    },
     "autoload": {
         "psr-4": {
-            "ContaoBlackForest\\Member\\Import\\": "legacy"
+            "ContaoBlackForest\\Member\\Import\\": "legacy",
+            "ContaoBlackForest\\MemberImportBundle\\": "src"
         }
     },
     "extra": {
+        "contao-manager-plugin": "ContaoBlackForest\\MemberImportBundle\\ContaoManager\\Plugin",
         "branch-alias": {
             "dev-release/2.0.0": "2.0.x-dev"
         }
