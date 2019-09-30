@@ -1,60 +1,54 @@
 {
-  "name": "contaoblackforest/contao-member-import",
-  "description": "Contao member import for Contao OpenSource CMS",
-  "keywords": [
-    "contao",
-    "backend",
-    "member",
-    "import",
-    "module"
-  ],
-  "type": "contao-module",
-  "license": "LGPL-3.0",
-  "authors": [
-    {
-      "name": "Sven Baumann",
-      "email": "baumann.sv@gmail.com",
-      "homepage": "https://github.com/ContaoBlackforest",
-      "role": "Developer"
+    "name": "contaoblackforest/contao-member-import",
+    "description": "Contao member import for Contao OpenSource CMS",
+    "keywords": [
+        "contao",
+        "backend",
+        "member",
+        "import",
+        "module"
+    ],
+    "type": "contao-module",
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Sven Baumann",
+            "email": "baumann.sv@gmail.com",
+            "homepage": "https://github.com/ContaoBlackforest",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "baumann.sv@gmail.com",
+        "issues": "https://github.com/ContaoBlackforest/contao-member-import/issues",
+        "wiki": "https://github.com/ContaoBlackforest/contao-member-import/wiki",
+        "irc": "irc://irc.freenode.org/contao.dev",
+        "source": "https://github.com/ContaoBlackforest/contao-member-import"
     },
-    {
-      "name": "Dominik Tomasi",
-      "email": "dominik.tomasi@gmail.com",
-      "homepage": "https://github.com/ContaoBlackforest",
-      "role": "Developer"
-    }
-  ],
-  "support": {
-    "email": "baumann.sv@gmail.com",
-    "issues": "https://github.com/ContaoBlackforest/contao-member-import/issues",
-    "wiki": "https://github.com/ContaoBlackforest/contao-member-import/wiki",
-    "irc": "irc://irc.freenode.org/contao.dev",
-    "source": "https://github.com/ContaoBlackforest/contao-member-import"
-  },
-  "require": {
-    "php": ">=5.4",
-    "contao/core": ">=3.5,<3.6",
-    "contao-community-alliance/composer-plugin": "~2.0",
-    "contao-community-alliance/event-dispatcher": "~1.0",
-    "menatwork/contao-multicolumnwizard": "~3.3"
-  },
-  "require-dev": {},
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "autoload": {
-    "psr-4": {
-      "ContaoBlackForest\\Member\\Import\\": ""
-    }
-  },
-  "extra": {
-    "contao": {
-      "sources": {
-        "Resources/contao": "system/modules/member-import",
-        "Resources/assets": "assets/member-import"
-      }
+    "require": {
+        "php": ">=5.4",
+        "contao/core": ">=3.5,<3.6",
+        "contao-community-alliance/composer-plugin": "~2.0",
+        "contao-community-alliance/event-dispatcher": "~1.0",
+        "menatwork/contao-multicolumnwizard": "~3.3"
     },
-    "branch-alias": {
-      "dev-develop": "1.0.x-dev"
+    "require-dev": {},
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "ContaoBlackForest\\Member\\Import\\": ""
+        }
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "Resources/contao": "system/modules/member-import",
+                "Resources/assets": "assets/member-import"
+            }
+        },
+        "branch-alias": {
+            "dev-develop": "1.0.x-dev"
+        }
     }
-  }
 }
