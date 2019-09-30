@@ -33,8 +33,6 @@
         "menatwork/contao-multicolumnwizard": "~3.3"
     },
     "require-dev": {},
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "ContaoBlackForest\\Member\\Import\\": ""
