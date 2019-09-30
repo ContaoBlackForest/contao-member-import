@@ -21,8 +21,11 @@ declare(strict_types=1);
 
 namespace ContaoBlackForest\MemberImportBundle\DependencyInjection;
 
+use ContaoBlackForest\MemberImportBundle\DataContainer\Table\Member\BuildImportMenu;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
  * The extension.
@@ -34,5 +37,15 @@ class BlackForestMemberImportExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+
+        $loader->load('services.yml');
+
+        $configuration = new Configuration();
+
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $definition = $container->getDefinition(BuildImportMenu::class);
+        $definition->setArgument(3, $config['session_key']);
     }
 }

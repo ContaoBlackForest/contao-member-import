@@ -5,7 +5,7 @@
     #accounts {
 
       .member_import {
-        display: none;
+         display: none;
       }
     }
   }
@@ -25,32 +25,44 @@
       top: -9999px;
       width: 100%;
       float: none;
-      border: 1px solid #000000;
-      background: #ffffff;
+      border: 1px solid #ddd;
+      background: #f3f3f5;
       text-align: left;
+      padding-right: 14px;
 
       li {
         padding: 6px;
+        margin-right: -14px;
 
         &:hover {
-          background: rgb(235, 253, 215);
+          background: #fffce1;
         }
 
         .navigation {
+          padding: 3px 0 3px 21px;
+          background-position: left center;
+          background-repeat: no-repeat;
+          margin: 3px;
 
-          &.autoload {
-            background-image: url("/system/modules/devtools/assets/autoload.gif");
+          &.settings {
+            background-image: url("/system/themes/flexible/icons/settings.svg");
+          }
+
+          &.import {
+            background-image: url("/system/themes/flexible/icons/store.svg");
           }
         }
       }
     }
 
-    &:hover {
+    &:hover,
+    > li:hover {
 
-      ul {
+      ul,
+      & + ul {
         display: inherit;
-        left: 0;
-        top: 18px;
+        left: -8px;
+        top: 20px;
       }
     }
   }

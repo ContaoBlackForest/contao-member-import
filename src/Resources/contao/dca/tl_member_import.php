@@ -35,7 +35,8 @@ $GLOBALS['TL_DCA']['tl_member_import'] = array
             (
                 'id' => 'primary'
             )
-        )
+        ),
+        'backlink' => 'do=member'
     ),
 
     // List

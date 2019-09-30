@@ -1,0 +1,9 @@
+services:
+    ContaoBlackForest\MemberImportBundle\DataContainer\Table\Member\BuildImportMenu:
+        public: true
+        arguments:
+            - '@session'
+            - '@twig'
+            - '@database_connection'
+            # The member import session key. It set in the extension and can define with the configuration.
+            - ''

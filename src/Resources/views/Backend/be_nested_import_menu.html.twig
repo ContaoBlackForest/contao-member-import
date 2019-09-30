@@ -1,0 +1,20 @@
+<ul class="menu {{ menuClass }}">
+    <li>{{ label }}</li>
+    <ul>
+        <li>
+            <a class="navigation settings" href="{{ path('contao_backend', {do: 'member', table: 'tl_member_import'}) }}">{{ 'MSC.member_import_settings'|trans([], 'contao_default') }}</a>
+        </li>
+        <li>
+            {% set importClass %}navigation import{% endset -%}
+            {%- set importLabel %}{{ 'MSC.member_import_import'|trans([], 'contao_default') }}{% endset -%}
+            {%- if importInformation -%}
+                {%- set confirmMessage %}{{ 'MSC.member_import_import_confirm'|trans([], 'contao_default') }} \n {{ importInformation|raw }}{% endset -%}
+                {%- set href %}{{ path('contao_cb_member_import') }}{% endset -%}
+                <a class="{{ importClass }}" onclick="if (!confirm('{{ confirmMessage }}')) return false; Backend.getScrollOffset();" href="{{ href }}">{{ importLabel }}</a>
+            {%- else %}
+                {%- set alertMessage %}{{ 'MSC.member_import_import_alert'|trans([], 'contao_default') }}{% endset -%}
+                <a class="{{ importClass }}" onclick="if (!alert('{{ alertMessage }}')) return false; Backend.getScrollOffset();">{{ importLabel }}</a>
+            {%- endif ~%}
+        </li>
+    </ul>
+</ul>

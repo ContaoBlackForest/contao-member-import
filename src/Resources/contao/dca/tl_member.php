@@ -17,20 +17,20 @@
  * @filesource
  */
 
-/** @see tl_member */
+use ContaoBlackForest\MemberImportBundle\DataContainer\Table\Member\BuildImportMenu;
 
 /**
  * Add global operations button
  */
-$globalOperations = array(
-    'member_import' => array
-    (
-        'label'           => &$GLOBALS['TL_LANG']['MSC']['member_import'],
-        'href'            => 'act=select',
-        'class'           => 'header_css_import',
-        'button_callback' => array('ContaoBlackForest\Member\Import\DataContainer\Table\Member', 'injectImportMenu')
-    )
-);
 
-$GLOBALS['TL_DCA']['tl_member']['list']['global_operations'] =
-    array_merge($globalOperations, $GLOBALS['TL_DCA']['tl_member']['list']['global_operations']);
+$GLOBALS['TL_DCA']['tl_member']['list']['global_operations'] = array_merge(
+    [
+        'member_import' => [
+            'label'           => &$GLOBALS['TL_LANG']['MSC']['member_import'],
+            'href'            => 'act=select',
+            'class'           => 'header_css_import',
+            'button_callback' => [BuildImportMenu::class, 'onBuild']
+        ]
+    ],
+    $GLOBALS['TL_DCA']['tl_member']['list']['global_operations']
+);
