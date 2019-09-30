@@ -46,7 +46,7 @@
             }
         },
         "branch-alias": {
-            "dev-develop": "1.0.x-dev"
+            "dev-release/2.0.0": "2.0.x-dev"
         }
     }
 }
