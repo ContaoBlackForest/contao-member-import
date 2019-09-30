@@ -35,16 +35,10 @@
     "require-dev": {},
     "autoload": {
         "psr-4": {
-            "ContaoBlackForest\\Member\\Import\\": ""
+            "ContaoBlackForest\\Member\\Import\\": "legacy"
         }
     },
     "extra": {
-        "contao": {
-            "sources": {
-                "Resources/contao": "system/modules/member-import",
-                "Resources/assets": "assets/member-import"
-            }
-        },
         "branch-alias": {
             "dev-release/2.0.0": "2.0.x-dev"
         }
