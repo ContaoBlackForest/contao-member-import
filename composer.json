@@ -28,9 +28,12 @@
     "require": {
         "php": "^7.1",
         "contao/core-bundle": "^4.4",
+        "contao-community-alliance/translator": "^2.1",
+        "contao-community-alliance/contao-polyfill-bundle": "^1.0",
         "menatwork/contao-multicolumnwizard-bundle": "^3.4",
         "symfony/dependency-injection": "^3.4 || ^4.3",
         "symfony/event-dispatcher": "^3.4 || ^4.3",
+        "symfony/http-foundation": "^3.4 || ^4.3",
         "ext-pdo": "*"
     },
     "require-dev": {
