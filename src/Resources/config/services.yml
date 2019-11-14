@@ -1,5 +1,5 @@
 services:
-    ContaoBlackForest\MemberImportBundle\DataContainer\Table\Member\BuildImportMenu:
+    ContaoBlackForest\MemberImportBundle\Callback\DataContainer\Table\Member\BuildImportMenu:
         public: true
         arguments:
             - '@session'

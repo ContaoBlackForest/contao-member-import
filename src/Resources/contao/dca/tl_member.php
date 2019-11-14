@@ -17,7 +17,7 @@
  * @filesource
  */
 
-use ContaoBlackForest\MemberImportBundle\DataContainer\Table\Member\BuildImportMenu;
+use ContaoBlackForest\MemberImportBundle\Callback\DataContainer\Table\Member\BuildImportMenu;
 
 /**
  * Add global operations button
@@ -29,7 +29,7 @@ $GLOBALS['TL_DCA']['tl_member']['list']['global_operations'] = array_merge(
             'label'           => &$GLOBALS['TL_LANG']['MSC']['member_import'],
             'href'            => 'act=select',
             'class'           => 'header_css_import',
-            'button_callback' => [BuildImportMenu::class, 'onBuild']
+            'button_callback' => [BuildImportMenu::class, '__invoke']
         ]
     ],
     $GLOBALS['TL_DCA']['tl_member']['list']['global_operations']

@@ -17,7 +17,9 @@
  * @filesource
  */
 
-namespace ContaoBlackForest\MemberImportBundle\DataContainer\Table\Member;
+declare(strict_types=1);
+
+namespace ContaoBlackForest\MemberImportBundle\Callback\DataContainer\Table\Member;
 
 use Doctrine\DBAL\Connection;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -71,17 +73,14 @@ final class BuildImportMenu
     /**
      * Inject the import menu.
      *
-     * @param $href  string The href.
-     *
-     * @param $label string The label.
-     *
-     * @param $title string The title.
-     *
-     * @param $class string The class.
+     * @param string $href  string The href.
+     * @param string $label string The label.
+     * @param string $title string The title.
+     * @param string $class string The class.
      *
      * @return string
      */
-    public function onBuild($href, $label, $title, $class)
+    public function __invoke(string $href, string $label, string $title, string $class): string
     {
         $this->session->remove($this->sessionKey);
 

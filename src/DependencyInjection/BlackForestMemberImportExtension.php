@@ -22,7 +22,7 @@ declare(strict_types=1);
 namespace ContaoBlackForest\MemberImportBundle\DependencyInjection;
 
 use ContaoBlackForest\MemberImportBundle\View\Backend\BackendTrait;
-use ContaoBlackForest\MemberImportBundle\DataContainer\Table\Member\BuildImportMenu;
+use ContaoBlackForest\MemberImportBundle\Callback\DataContainer\Table\Member\BuildImportMenu;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
