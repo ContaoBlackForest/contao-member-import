@@ -23,5 +23,3 @@ use ContaoBlackForest\Member\Import\DataContainer\Table\MemberImport;
  * Add member import table.
  */
 $GLOBALS['BE_MOD']['accounts']['member']['tables'][] = 'tl_member_import';
-
-$GLOBALS['TL_CSS']['member-import'] = 'bundles/blackforestmemberimport/backend/member_import_menu.css';

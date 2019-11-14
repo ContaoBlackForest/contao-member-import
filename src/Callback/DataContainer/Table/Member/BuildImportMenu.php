@@ -84,6 +84,10 @@ final class BuildImportMenu
     {
         $this->session->remove($this->sessionKey);
 
+        $GLOBALS['TL_CSS']['member_import_menu'] = $this->twig->render(
+            '@BlackForestMemberImport/Backend/be_nested_import_menu.css.twig'
+        );
+
         return $this->twig->render(
             '@BlackForestMemberImport/Backend/be_nested_import_menu.html.twig',
             [
