@@ -30,7 +30,7 @@ class PrePrepareDataEvent extends Event
     /**
      * The event name.
      */
-    const NAME = 'ContaoBlackForest\MemberImportBundle\Event\PrePrepareDataEvent';
+    const NAME = 'cb.member_import.pre_prepare_data';
 
     /**
      * The import data.
