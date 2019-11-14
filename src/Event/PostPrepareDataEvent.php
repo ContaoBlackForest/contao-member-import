@@ -17,7 +17,7 @@
  * @filesource
  */
 
-namespace ContaoBlackForest\Member\Import\Event;
+namespace ContaoBlackForest\MemberImportBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -30,7 +30,7 @@ class PostPrepareDataEvent extends Event
     /**
      * The event name.
      */
-    const NAME = 'ContaoBlackForest\Member\Import\Event\PostPrepareDataEvent';
+    const NAME = 'ContaoBlackForest\MemberImportBundle\Event\PostPrepareDataEvent';
 
     /**
      * The prepared data.

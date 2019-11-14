@@ -21,8 +21,8 @@ declare(strict_types=1);
 
 namespace ContaoBlackForest\MemberImportBundle\View\Backend;
 
-use ContaoBlackForest\Member\Import\Event\PostPrepareDataEvent;
-use ContaoBlackForest\Member\Import\Event\PrePrepareDataEvent;
+use ContaoBlackForest\MemberImportBundle\Event\PostPrepareDataEvent;
+use ContaoBlackForest\MemberImportBundle\Event\PrePrepareDataEvent;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 

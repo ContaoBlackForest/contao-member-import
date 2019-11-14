@@ -19,7 +19,7 @@
 
 namespace ContaoBlackForest\Member\Import\Subscriber;
 
-use ContaoBlackForest\Member\Import\Event\PostPrepareDataEvent;
+use ContaoBlackForest\MemberImportBundle\Event\PostPrepareDataEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
