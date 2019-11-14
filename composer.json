@@ -6,7 +6,7 @@
         "backend",
         "member",
         "import",
-        "module"
+        "bundle"
     ],
     "type": "contao-bundle",
     "license": "LGPL-3.0-or-later",
