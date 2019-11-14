@@ -7,3 +7,37 @@ services:
             - '@database_connection'
             # The member import session key. It set in the extension and can define with the configuration.
             - ''
+
+    ContaoBlackForest\MemberImportBundle\View\Backend\BackendTrait:
+        synthetic: true
+        public:    true
+        arguments:
+            - '@contao.framework'
+            - '@database_connection'
+            - '@request_stack'
+            - '@router'
+            - '@session'
+            - '@translator'
+            - '@twig'
+            - '@assets.packages'
+            - '@event_dispatcher'
+            - '%kernel.packages%'
+            - '%kernel.project_dir%'
+            # The member import session key. It set in the extension and can define with the configuration.
+            - ''
+
+    ContaoBlackForest\MemberImportBundle\View\Backend\BackendImportMain:
+        parent: ContaoBlackForest\MemberImportBundle\View\Backend\BackendTrait
+        public: true
+
+    ContaoBlackForest\MemberImportBundle\View\Backend\BackendImportLoad:
+        parent: ContaoBlackForest\MemberImportBundle\View\Backend\BackendTrait
+        public: true
+
+    ContaoBlackForest\MemberImportBundle\View\Backend\BackendImportPrepare:
+        parent: ContaoBlackForest\MemberImportBundle\View\Backend\BackendTrait
+        public: true
+
+    ContaoBlackForest\MemberImportBundle\View\Backend\BackendImportImport:
+        parent: ContaoBlackForest\MemberImportBundle\View\Backend\BackendTrait
+        public: true

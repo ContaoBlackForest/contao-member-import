@@ -18,23 +18,10 @@
  */
 
 use ContaoBlackForest\Member\Import\DataContainer\Table\MemberImport;
-use ContaoBlackForest\Member\Import\Controller\BackendController;
 
 /**
  * Add member import table.
  */
 $GLOBALS['BE_MOD']['accounts']['member']['tables'][] = 'tl_member_import';
 
-$GLOBALS['BE_MOD']['accounts']['member_import'] = array(
-    'callback'   => BackendController::class,
-);
-
-/**
- * Replace title and headline.
- */
-$GLOBALS['TL_HOOKS']['parseTemplate'][] =
-    array(MemberImport::class, 'replaceHeadlineName');
-$GLOBALS['TL_HOOKS']['parseTemplate'][] =
-    array(BackendController::class, 'replaceHeadlineName');
-
-$GLOBALS['TL_CSS']['member-import'] = 'bundles/blackforestmemberimport/backend/style.css';
+$GLOBALS['TL_CSS']['member-import'] = 'bundles/blackforestmemberimport/backend/member_import_menu.css';

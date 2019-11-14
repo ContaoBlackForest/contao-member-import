@@ -88,12 +88,12 @@ class PrePrepareData implements EventSubscriberInterface
      */
     protected function prepareTranslation($settings)
     {
-        if (count($settings['translate_properties']) === 0) {
+        if (count($settings->translate_properties) === 0) {
             return null;
         }
 
         $translate = array();
-        foreach ($settings['translate_properties'] as $translate_property) {
+        foreach ($settings->translate_properties as $translate_property) {
             $translate[$translate_property['translation']] = $translate_property['property'];
         }
 

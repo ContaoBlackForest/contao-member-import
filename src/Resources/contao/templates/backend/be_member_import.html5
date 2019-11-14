@@ -1,3 +1,0 @@
-<br>
-<h2 class="sub_headline"><?= $GLOBALS['TL_LANG']['MOD']['member'][0] . ' Import' ?></h2>
-

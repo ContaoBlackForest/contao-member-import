@@ -21,6 +21,7 @@ declare(strict_types=1);
 
 namespace ContaoBlackForest\MemberImportBundle\DependencyInjection;
 
+use ContaoBlackForest\MemberImportBundle\View\Backend\BackendTrait;
 use ContaoBlackForest\MemberImportBundle\DataContainer\Table\Member\BuildImportMenu;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -45,7 +46,12 @@ class BlackForestMemberImportExtension extends Extension
 
         $config = $this->processConfiguration($configuration, $configs);
 
-        $definition = $container->getDefinition(BuildImportMenu::class);
-        $definition->setArgument(3, $config['session_key']);
+        $container
+            ->getDefinition(BuildImportMenu::class)
+            ->setArgument(3, $config['session_key']);
+
+        $container
+            ->getDefinition(BackendTrait::class)
+            ->setArgument(11, $config['session_key']);
     }
 }

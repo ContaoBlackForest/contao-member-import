@@ -14,8 +14,11 @@
       <trans-unit id="MSC.member_import_import_confirm">
         <source>Will following configuration be imported?</source>
       </trans-unit>
-      <trans-unit id="MSC.member_import_import_alert">
+      <trans-unit id="MSC.member_import_error_settings">
         <source>There were found no import settings!</source>
+      </trans-unit>
+      <trans-unit id="MSC.member_import_error_data">
+        <source>There were found no import data!</source>
       </trans-unit>
     </body>
   </file>

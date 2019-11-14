@@ -34,26 +34,6 @@ use Contao\Versions;
  */
 class MemberImport
 {
-    public function replaceHeadlineName(BaseTemplate &$template)
-    {
-        if (Input::get('do') !== 'member'
-            || Input::get('table') !== 'tl_member_import'
-            || $template->getName() !== 'be_main'
-        ) {
-            return;
-        }
-
-        if (!Input::get('act')) {
-            $template->title .= ' &raquo;';
-
-            $template->headline .= ' &raquo;';
-        }
-
-        $template->title .= ' Import';
-
-        $template->headline .= ' Import';
-    }
-
     /**
      * Return the toggle visibility button
      *

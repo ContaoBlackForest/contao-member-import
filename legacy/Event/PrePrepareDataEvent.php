@@ -56,7 +56,7 @@ class PrePrepareDataEvent extends Event
      *
      * @param array                    $importData      The import data.
      *
-     * @param array                    $settings        The import settings.
+     * @param \stdClass                $settings        The import settings.
      */
     public function __construct(EventDispatcherInterface $eventDispatcher, $importData, $settings)
     {
