@@ -48,6 +48,7 @@ final class Plugin implements BundlePluginInterface, RoutingPluginInterface
                         ContaoCoreBundle::class
                     ]
                 )
+                ->setReplace(['member-send-import'])
         ];
     }
 
