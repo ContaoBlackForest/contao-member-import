@@ -1,0 +1,21 @@
+services:
+    ContaoBlackForest\MemberImportBundle\EventListener\Import\TranslateProperties:
+        public: false
+        tags:
+            -   name: kernel.event_listener
+                event: cb.member_import.pre_prepare_data
+                method: __invoke
+
+    ContaoBlackForest\MemberImportBundle\EventListener\Import\RemoveHasNoEmail:
+        public: false
+        tags:
+            -   name: kernel.event_listener
+                event: cb.member_import.pre_prepare_data
+                method: __invoke
+
+    ContaoBlackForest\MemberImportBundle\EventListener\Import\SetPropertyValuesFromSetting:
+        public: false
+        tags:
+            -   name: kernel.event_listener
+                event: cb.member_import.post_prepare_data
+                method: __invoke
