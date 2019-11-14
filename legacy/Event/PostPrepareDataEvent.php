@@ -33,13 +33,6 @@ class PostPrepareDataEvent extends Event
     const NAME = 'ContaoBlackForest\Member\Import\Event\PostPrepareDataEvent';
 
     /**
-     * The event dispatcher.
-     *
-     * @var EventDispatcherInterface
-     */
-    protected $eventDispatcher;
-
-    /**
      * The prepared data.
      */
     protected $preparedData;
@@ -52,25 +45,13 @@ class PostPrepareDataEvent extends Event
     /**
      * PrePrepareDataEvent constructor.
      *
-     * @param EventDispatcherInterface $eventDispatcher The event dispatcher.
-     *
-     * @param array                    $preparedData    The prepared data.
+     * @param array $preparedData The prepared data.
+     * @param       $settings
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher, $preparedData, $settings)
+    public function __construct($preparedData, $settings)
     {
-        $this->eventDispatcher = $eventDispatcher;
         $this->preparedData    = $preparedData;
         $this->settings        = $settings;
-    }
-
-    /**
-     * Get the event dispatcher.
-     *
-     * @return mixed
-     */
-    public function getEventDispatcher()
-    {
-        return $this->eventDispatcher;
     }
 
     /**

@@ -87,10 +87,10 @@ final class BackendImportPrepare
      */
     private function prepareDate(array $data, \stdClass $setting): array
     {
-        $preEvent = new PrePrepareDataEvent($this->dispatcher, $data, $setting);
+        $preEvent = new PrePrepareDataEvent($data, $setting);
         $this->dispatcher->dispatch(PrePrepareDataEvent::NAME, $preEvent);
 
-        $postEvent = new PostPrepareDataEvent($this->dispatcher, $preEvent->getImportData(), $preEvent->getSettings());
+        $postEvent = new PostPrepareDataEvent($preEvent->getImportData(), $preEvent->getSettings());
         $this->dispatcher->dispatch(PostPrepareDataEvent::NAME, $postEvent);
 
         return (array) $postEvent->getPreparedData();
