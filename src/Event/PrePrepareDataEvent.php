@@ -17,6 +17,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBlackForest\MemberImportBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
@@ -25,7 +27,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 /**
  * The pre prepare data event.
  */
-class PrePrepareDataEvent extends Event
+final class PrePrepareDataEvent extends Event
 {
     /**
      * The event name.
@@ -34,32 +36,36 @@ class PrePrepareDataEvent extends Event
 
     /**
      * The import data.
+     *
+     * @var array
      */
     protected $importData;
 
     /**
      * The data import settings.
+     *
+     *  @var \stdClass
      */
-    protected $settings;
+    protected $setting;
 
     /**
-     * PrePrepareDataEvent constructor.
+     * The constructor.
      *
      * @param array     $importData The import data.
-     * @param \stdClass $settings   The import settings.
+     * @param \stdClass $setting    The import setting.
      */
-    public function __construct($importData, $settings)
+    public function __construct(array $importData, \stdClass$setting)
     {
-        $this->importData      = $importData;
-        $this->settings        = $settings;
+        $this->importData = $importData;
+        $this->setting    = $setting;
     }
 
     /**
      * Return the import data.
      *
-     * @return mixed
+     * @return array
      */
-    public function getImportData()
+    public function getImportData(): array
     {
         return $this->importData;
     }
@@ -67,11 +73,11 @@ class PrePrepareDataEvent extends Event
     /**
      * Set the import data.
      *
-     * @param mixed $importData
+     * @param array $importData The import data.
      *
      * @return void
      */
-    public function setImportData($importData)
+    public function setImportData(array $importData): void
     {
         $this->importData = $importData;
     }
@@ -79,10 +85,10 @@ class PrePrepareDataEvent extends Event
     /**
      * Return the import settings.
      *
-     * @return mixed
+     * @return \stdClass
      */
-    public function getSettings()
+    public function getSetting(): \stdClass
     {
-        return $this->settings;
+        return $this->setting;
     }
 }

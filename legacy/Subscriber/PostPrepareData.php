@@ -65,7 +65,7 @@ class PostPrepareData implements EventSubscriberInterface
     public function setPropertyValuesFromSetting(PostPrepareDataEvent $event)
     {
         $preparedData = $event->getPreparedData();
-        $settings     = $event->getSettings();
+        $settings     = $event->getSetting();
 
         foreach ($preparedData as $index => $value) {
             $preparedData[$index] = $this->setPropertyValues($settings, $value);

@@ -90,7 +90,7 @@ final class BackendImportPrepare
         $preEvent = new PrePrepareDataEvent($data, $setting);
         $this->dispatcher->dispatch(PrePrepareDataEvent::NAME, $preEvent);
 
-        $postEvent = new PostPrepareDataEvent($preEvent->getImportData(), $preEvent->getSettings());
+        $postEvent = new PostPrepareDataEvent($preEvent->getImportData(), $preEvent->getSetting());
         $this->dispatcher->dispatch(PostPrepareDataEvent::NAME, $postEvent);
 
         return (array) $postEvent->getPreparedData();

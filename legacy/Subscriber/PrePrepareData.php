@@ -66,7 +66,7 @@ class PrePrepareData implements EventSubscriberInterface
     public function translateProperties(PrePrepareDataEvent $event)
     {
         $importData = $event->getImportData();
-        $settings   = $event->getSettings();
+        $settings   = $event->getSetting();
 
         if (!$translate = $this->prepareTranslation($settings)) {
             return;

@@ -17,6 +17,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBlackForest\MemberImportBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
@@ -25,7 +27,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 /**
  * The pre prepare data event.
  */
-class PostPrepareDataEvent extends Event
+final class PostPrepareDataEvent extends Event
 {
     /**
      * The event name.
@@ -34,32 +36,36 @@ class PostPrepareDataEvent extends Event
 
     /**
      * The prepared data.
+     *
+     * @var array
      */
     protected $preparedData;
 
     /**
-     * The import settings.
+     * The import setting.
+     *
+     * @var \stdClass
      */
-    protected $settings;
+    protected $setting;
 
     /**
-     * PrePrepareDataEvent constructor.
+     * The constructor.
      *
-     * @param array $preparedData The prepared data.
-     * @param       $settings
+     * @param array     $preparedData The prepared data.
+     * @param \stdClass $setting      The setting.
      */
-    public function __construct($preparedData, $settings)
+    public function __construct(array $preparedData, \stdClass $setting)
     {
-        $this->preparedData    = $preparedData;
-        $this->settings        = $settings;
+        $this->preparedData = $preparedData;
+        $this->setting      = $setting;
     }
 
     /**
      * Return the prepared data.
      *
-     * @return mixed
+     * @return array
      */
-    public function getPreparedData()
+    public function getPreparedData(): array
     {
         return $this->preparedData;
     }
@@ -67,11 +73,11 @@ class PostPrepareDataEvent extends Event
     /**
      * Set the prepared data.
      *
-     * @param mixed $preparedData
+     * @param array $preparedData The prepare data.
      *
      * @return void
      */
-    public function setPreparedData($preparedData)
+    public function setPreparedData(array $preparedData): void
     {
         $this->preparedData = $preparedData;
     }
@@ -79,10 +85,10 @@ class PostPrepareDataEvent extends Event
     /**
      * Return the import settings.
      *
-     * @return array
+     * @return \stdClass
      */
-    public function getSettings()
+    public function getSetting(): \stdClass
     {
-        return $this->settings;
+        return $this->setting;
     }
 }
