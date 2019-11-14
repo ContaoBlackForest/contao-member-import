@@ -1,5 +1,7 @@
 <?php
 
+use ContaoBlackForest\Member\Import\DataContainer\Table\MemberImport;
+
 /**
  * This file is part of contaoblackforest/contao-member-import.
  *
@@ -21,93 +23,74 @@
 /**
  * Table tl_member
  */
-$GLOBALS['TL_DCA']['tl_member_import'] = array
-(
+$GLOBALS['TL_DCA']['tl_member_import'] = [
 
     // Config
-    'config'      => array
-    (
+    'config'      => [
         'dataContainer'    => 'Table',
         'enableVersioning' => true,
-        'sql'              => array
-        (
-            'keys' => array
-            (
+        'sql'              => [
+            'keys' => [
                 'id' => 'primary'
-            )
-        ),
+            ]
+        ],
         'backlink' => 'do=member'
-    ),
+    ],
 
     // List
-    'list'        => array
-    (
-        'sorting'           => array
-        (
+    'list'        => [
+        'sorting'           => [
             'mode'   => 1,
-            'fields' => array('title'),
+            'fields' => ['title'],
             'flag'   => 1,
-        ),
-        'label'             => array
-        (
-            'fields' => array('title'),
+        ],
+        'label'             => [
+            'fields' => ['title'],
             'format' => '%s'
-        ),
-        'global_operations' => array
-        (
-            'all' => array
-            (
+        ],
+        'global_operations' => [
+            'all' => [
                 'label'      => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href'       => 'act=select',
                 'class'      => 'header_edit_all',
                 'attributes' => 'onclick="Backend.getScrollOffset()" accesskey="e"'
-            )
-        ),
-        'operations'        => array
-        (
-            'edit'   => array
-            (
+            ]
+        ],
+        'operations'        => [
+            'edit'   => [
                 'label' => &$GLOBALS['TL_LANG']['tl_member_import']['edit'],
                 'href'  => 'act=edit',
                 'icon'  => 'edit.gif'
-            ),
-            'copy'   => array
-            (
+            ],
+            'copy'   => [
                 'label' => &$GLOBALS['TL_LANG']['tl_member_import']['copy'],
                 'href'  => 'act=copy',
                 'icon'  => 'copy.gif'
-            ),
-            'delete' => array
-            (
+            ],
+            'delete' => [
                 'label'      => &$GLOBALS['TL_LANG']['tl_member_import']['delete'],
                 'href'       => 'act=delete',
                 'icon'       => 'delete.gif',
                 'attributes' => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] .
                                 '\'))return false;Backend.getScrollOffset()"'
-            ),
-            'toggle' => array
-            (
+            ],
+            'toggle' => [
                 'label'           => &$GLOBALS['TL_LANG']['tl_member_import']['toggle'],
                 'icon'            => 'visible.gif',
                 'attributes'      => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-                'button_callback' => array(
-                    'ContaoBlackForest\Member\Import\DataContainer\Table\MemberImport',
-                    'toggleIcon'
-                )
-            ),
-            'show'   => array
-            (
+                'button_callback' => [MemberImport::class, 'toggleIcon']
+            ],
+            'show'   => [
                 'label' => &$GLOBALS['TL_LANG']['tl_member_import']['show'],
                 'href'  => 'act=show',
                 'icon'  => 'show.gif'
-            )
-        )
-    ),
+            ]
+        ]
+    ],
 
     // Palettes
-    'palettes'    => array
-    (
-        '__selector__' => array('assignDir'),
+    'palettes'    => [
+        '__selector__' => ['assignDir'],
         'default'      => '{title_legend},title;' .
                           '{import_legend},importSource,translate_properties,disable_import;' .
                           '{address_legend:hide},company,street,postal,city,state,country;' .
@@ -116,273 +99,238 @@ $GLOBALS['TL_DCA']['tl_member_import'] = array
                           '{login_legend},login;' .
                           '{homedir_legend:hide},assignDir;' .
                           '{account_legend},disable,start,stop',
-    ),
+    ],
 
     // Subpalettes
-    'subpalettes' => array
-    (
+    'subpalettes' => [
         'assignDir' => 'homeDir'
-    ),
+    ],
 
 
     // Fields
-    'fields'      => array
-    (
-        'id'             => array
-        (
+    'fields'      => [
+        'id'             => [
             'sql' => "int(10) unsigned NOT NULL auto_increment"
-        ),
-        'tstamp'         => array
-        (
+        ],
+        'tstamp'         => [
             'sql' => "int(10) unsigned NOT NULL default '0'"
-        ),
-        'title'          => array
-        (
+        ],
+        'title'          => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['title'],
             'exclude'   => true,
             'search'    => true,
             'sorting'   => true,
             'flag'      => 1,
             'inputType' => 'text',
-            'eval'      => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
+            'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
             'sql'       => "varchar(255) NOT NULL default ''"
-        ),
-        'importSource'   => array
-        (
+        ],
+        'importSource'   => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['importSource'],
             'exclude'   => true,
             'inputType' => 'fileTree',
-            'eval'      => array(
+            'eval'      => [
                 'filesOnly'  => true,
                 'fieldType'  => 'radio',
                 'mandatory'  => true,
                 'tl_class'   => 'clr',
                 'extensions' => 'csv'
-            ),
+            ],
             'sql'       => "binary(16) NULL"
-        ),
-        'company'        => array
-        (
+        ],
+        'company'        => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['company'],
             'exclude'   => true,
             'search'    => true,
             'sorting'   => true,
             'flag'      => 1,
             'inputType' => 'text',
-            'eval'      => array('maxlength' => 255, 'feGroup' => 'address', 'tl_class' => 'w50'),
+            'eval'      => ['maxlength' => 255, 'feGroup' => 'address', 'tl_class' => 'w50'],
             'sql'       => "varchar(255) NOT NULL default ''"
-        ),
-        'street'         => array
-        (
+        ],
+        'street'         => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['street'],
             'exclude'   => true,
             'search'    => true,
             'inputType' => 'text',
-            'eval'      => array('maxlength' => 255, 'feGroup' => 'address', 'tl_class' => 'w50'),
+            'eval'      => ['maxlength' => 255, 'feGroup' => 'address', 'tl_class' => 'w50'],
             'sql'       => "varchar(255) NOT NULL default ''"
-        ),
-        'postal'         => array
-        (
+        ],
+        'postal'         => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['postal'],
             'exclude'   => true,
             'search'    => true,
             'inputType' => 'text',
-            'eval'      => array('maxlength' => 32, 'feGroup' => 'address', 'tl_class' => 'w50'),
+            'eval'      => ['maxlength' => 32, 'feGroup' => 'address', 'tl_class' => 'w50'],
             'sql'       => "varchar(32) NOT NULL default ''"
-        ),
-        'city'           => array
-        (
+        ],
+        'city'           => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['city'],
             'exclude'   => true,
             'filter'    => true,
             'search'    => true,
             'sorting'   => true,
             'inputType' => 'text',
-            'eval'      => array('maxlength' => 255, 'feGroup' => 'address', 'tl_class' => 'w50'),
+            'eval'      => ['maxlength' => 255, 'feGroup' => 'address', 'tl_class' => 'w50'],
             'sql'       => "varchar(255) NOT NULL default ''"
-        ),
-        'state'          => array
-        (
+        ],
+        'state'          => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['state'],
             'exclude'   => true,
             'sorting'   => true,
             'inputType' => 'text',
-            'eval'      => array('maxlength' => 64, 'feGroup' => 'address', 'tl_class' => 'w50'),
+            'eval'      => ['maxlength' => 64, 'feGroup' => 'address', 'tl_class' => 'w50'],
             'sql'       => "varchar(64) NOT NULL default ''"
-        ),
-        'country'        => array
-        (
+        ],
+        'country'        => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['country'],
             'exclude'   => true,
             'filter'    => true,
             'sorting'   => true,
             'inputType' => 'select',
             'options'   => System::getCountries(),
-            'eval'      => array(
+            'eval'      => [
                 'includeBlankOption' => true,
                 'chosen'             => true,
                 'feGroup'            => 'address',
                 'tl_class'           => 'w50'
-            ),
+            ],
             'sql'       => "varchar(2) NOT NULL default ''"
-        ),
-        'phone'          => array
-        (
+        ],
+        'phone'          => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['phone'],
             'exclude'   => true,
             'search'    => true,
             'inputType' => 'text',
-            'eval'      => array(
+            'eval'      => [
                 'maxlength'      => 64,
                 'rgxp'           => 'phone',
                 'decodeEntities' => true,
                 'feGroup'        => 'contact',
                 'tl_class'       => 'w50'
-            ),
+            ],
             'sql'       => "varchar(64) NOT NULL default ''"
-        ),
-        'fax'            => array
-        (
+        ],
+        'fax'            => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['fax'],
             'exclude'   => true,
             'search'    => true,
             'inputType' => 'text',
-            'eval'      => array(
+            'eval'      => [
                 'maxlength'      => 64,
                 'rgxp'           => 'phone',
                 'decodeEntities' => true,
                 'feGroup'        => 'contact',
                 'tl_class'       => 'w50'
-            ),
+            ],
             'sql'       => "varchar(64) NOT NULL default ''"
-        ),
-        'website'        => array
-        (
+        ],
+        'website'        => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['website'],
             'exclude'   => true,
             'search'    => true,
             'inputType' => 'text',
-            'eval'      => array('rgxp' => 'url', 'maxlength' => 255, 'feGroup' => 'contact', 'tl_class' => 'w50'),
+            'eval'      => ['rgxp' => 'url', 'maxlength' => 255, 'feGroup' => 'contact', 'tl_class' => 'w50'],
             'sql'       => "varchar(255) NOT NULL default ''"
-        ),
-        'language'       => array
-        (
+        ],
+        'language'       => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['language'],
             'exclude'   => true,
             'filter'    => true,
             'inputType' => 'select',
             'options'   => System::getLanguages(),
-            'eval'      => array(
+            'eval'      => [
                 'includeBlankOption' => true,
                 'chosen'             => true,
                 'rgxp'               => 'locale',
                 'tl_class'           => 'w50'
-            ),
+            ],
             'sql'       => "varchar(5) NOT NULL default ''"
-        ),
-        'groups'         => array
-        (
+        ],
+        'groups'         => [
             'label'      => &$GLOBALS['TL_LANG']['tl_member_import']['groups'],
             'exclude'    => true,
             'filter'     => true,
             'inputType'  => 'checkboxWizard',
             'foreignKey' => 'tl_member_group.name',
-            'eval'       => array('multiple' => true, 'feGroup' => 'login'),
+            'eval'       => ['multiple' => true, 'feGroup' => 'login'],
             'sql'        => "blob NULL",
-            'relation'   => array('type' => 'belongsToMany', 'load' => 'lazy')
-        ),
-        'login'          => array
-        (
+            'relation'   => ['type' => 'belongsToMany', 'load' => 'lazy']
+        ],
+        'login'          => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['login'],
             'exclude'   => true,
             'filter'    => true,
             'inputType' => 'checkbox',
             'sql'       => "char(1) NOT NULL default ''"
-        ),
-        'assignDir'      => array
-        (
+        ],
+        'assignDir'      => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['assignDir'],
             'exclude'   => true,
             'inputType' => 'checkbox',
-            'eval'      => array('submitOnChange' => true),
+            'eval'      => ['submitOnChange' => true],
             'sql'       => "char(1) NOT NULL default ''"
-        ),
-        'homeDir'        => array
-        (
+        ],
+        'homeDir'        => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['homeDir'],
             'exclude'   => true,
             'inputType' => 'fileTree',
-            'eval'      => array('fieldType' => 'radio', 'tl_class' => 'clr'),
+            'eval'      => ['fieldType' => 'radio', 'tl_class' => 'clr'],
             'sql'       => "binary(16) NULL"
-        ),
-        'disable'        => array
-        (
+        ],
+        'disable'        => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['disable'],
             'exclude'   => true,
             'filter'    => true,
             'inputType' => 'checkbox',
             'sql'       => "char(1) NOT NULL default ''"
-        ),
-        'start'          => array
-        (
+        ],
+        'start'          => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['start'],
             'exclude'   => true,
             'inputType' => 'text',
-            'eval'      => array('rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'),
+            'eval'      => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
             'sql'       => "varchar(10) NOT NULL default ''"
-        ),
-        'stop'           => array
-        (
+        ],
+        'stop'           => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['stop'],
             'exclude'   => true,
             'inputType' => 'text',
-            'eval'      => array('rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'),
+            'eval'      => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
             'sql'       => "varchar(10) NOT NULL default ''"
-        ),
-        'disable_import' => array
-        (
+        ],
+        'disable_import' => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['disable_import'],
             'exclude'   => true,
             'filter'    => true,
             'inputType' => 'checkbox',
             'sql'       => "char(1) NOT NULL default ''"
-        ),
-        'translate_properties' => array
-        (
+        ],
+        'translate_properties' => [
             'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['translate_properties'],
             'exclude'   => true,
             'inputType' => 'multiColumnWizard',
-            'eval'      => array
-            (
-                'columnFields' => array
-                (
-                    'property'    => array
-                    (
+            'eval'      => [
+                'columnFields' => [
+                    'property'    => [
                         'label'            => &$GLOBALS['TL_LANG']['tl_member_import']['translate_properties_property'],
                         'exclude'          => true,
                         'inputType'        => 'select',
-                        'options_callback' => array
-                        (
-                            'ContaoBlackForest\Member\Import\DataContainer\Table\MemberImport',
-                            'getTranslationProperties'
-                        ),
-                        'eval'             => array(
+                        'options_callback' => [MemberImport::class, 'getTranslationProperties'],
+                        'eval'             => [
                             'includeBlankOption' => true,
                             'chosen'             => true,
                             'style'              => 'width:360px'
-                        ),
-                    ),
-                    'translation' => array
-                    (
+                        ],
+                    ],
+                    'translation' => [
                         'label'     => &$GLOBALS['TL_LANG']['tl_member_import']['translate_properties_translation'],
                         'exclude'   => true,
-                        'inputType' => 'text',
-                        'eval'      => array
-                        (),
-                    ),
-                )
-            ),
+                        'inputType' => 'text'
+                    ],
+                ]
+            ],
             'sql'       => "blob NULL"
-        )
-    )
-);
+        ]
+    ]
+];
