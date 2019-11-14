@@ -17,7 +17,7 @@
  * @filesource
  */
 
-namespace ContaoBlackForest\Member\Import\Subscriber;
+namespace ContaoBlackForest\MemberImportBundle\EventListener\Import;
 
 use ContaoBlackForest\MemberImportBundle\Event\PrePrepareDataEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

@@ -17,8 +17,8 @@
  * @filesource
  */
 
-use ContaoBlackForest\Member\Import\Subscriber\PostPrepareData;
-use ContaoBlackForest\Member\Import\Subscriber\PrePrepareData;
+use ContaoBlackForest\MemberImportBundle\EventListener\Import\PostPrepareData;
+use ContaoBlackForest\MemberImportBundle\EventListener\Import\PrePrepareData;
 
 return array(
     new PrePrepareData(),
